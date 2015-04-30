@@ -1,0 +1,8 @@
+<h1> <%= @users.first_name @users.middle_initial @users.last_name %> </h1>
+
+<h3> Loyalty Programs </h3>
+
+<p> <% @LoyaltyProgram.each do |LoyaltyProgram| %>
+	<%= LoyaltyProgram.find_by(id: users.user_id).store %> 
+
+<% end %>

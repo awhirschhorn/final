@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+	<div class="col-sm-6">
+	<div class="thumbnail">
+		<a href="/users/<%= user.id%>">
+	<p><a href="/users/<%= user.id%>"><%= User.first_name User.middle_initial User.last_name %></p>
+	</a>
+	</div>
+	</div>
+	</div>
+<% end %>
