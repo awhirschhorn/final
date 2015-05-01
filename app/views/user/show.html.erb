@@ -2,7 +2,7 @@
 
 <h3> Loyalty Programs </h3>
 
-<p> <% @LoyaltyProgram.each do |LoyaltyProgram| %>
+<p> <% @loyalty.each do |loyaltyProgram| %>
 	<%= LoyaltyProgram.find_by(id: users.user_id).store %> 
 
 <% end %>

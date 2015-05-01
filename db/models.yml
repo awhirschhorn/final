@@ -7,39 +7,39 @@ User:
   first_name: string
   last_name: string
   middle_initial: string
-  DOB: #Ask Brian about how to format dates
+  dob: string
   income: integer
-  LoyaltyProgram_id: integer
-  gender: #Ask Brian
-  HH_size: integer
+  loyaltyProgram_id: integer
+  gender: string
+  hh_size: integer
   address1: string
   address2: string
   city: string
   state: string
-  ZIP: string
+  zip: string
   email: string #Confirm with Brian
-  race: #Ask Brian
-  language: #Ask Brian
-  marital_status: #Ask Brian
+  race: string
+  language: string
+  marital_status: string
   kids_under_18: integer
-  education: 
-  HH_id: #Need to think if this makes sense to add--useful for multiple people in same HH 
+  education: string
+  HH_id: string #Need to think if this makes sense to add--useful for multiple people in same HH 
   #w diff buying habits
 
-Coupons:
-  LoyaltyProgram_id: integer
+Coupon:
+  loyaltyProgram_id: integer
   discount: integer
   discounted_item: integer #makes most sense it will be some interger 
   discounted_category_num: integer 
   discounted_category_str: string
-  coupon_code: #Not sure? Img file? String? 
+  coupon_code: string #Not sure? Img file? String? 
 
 Transaction:
-  User_id: integer
-  LoyaltyProgram_id: integer
-  Item_bought: integer
-  Price: integer
+  ser_id: integer
+  loyaltyProgram_id: integer
+  item_bought: integer
+  price: integer
   qty_bought: integer
-  Coupons_id: integer
+  coupon_id: integer
   #Make more detailed and collect every item? Would make sense. But how to collect? 
   #What if they buy a lot of items (e.g. 20 things at grocery store)?

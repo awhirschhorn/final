@@ -1,0 +1,9 @@
+<% @user.each do |user| %>
+	<div class="col-sm-6">
+	<div class="thumbnail">
+		<a href="/user/<%= user.id%>">
+	<p><a href="/user/<%= user.id%>"><%= user.first_name user.middle_initial user.last_name %></p>
+	</a>
+	</div>
+	</div>
+<% end %>
