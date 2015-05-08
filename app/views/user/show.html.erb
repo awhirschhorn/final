@@ -4,5 +4,15 @@
 
 <p> <% @loyalty.each do |loyaltyProgram| %>
 	<%= LoyaltyProgram.find_by(id: users.user_id).store %> 
+	    <li><%= link_to loyaltyProgram.name, edit_loyaltyProgram_url(loyaltyProgram) %></li>
+    	<li><%= link_to "Delete", loyaltyProgram_url(loyaltyProgram) %></li> <!-- Need to figure out a way to make this only delete the loyalty program in the user's account, not the program entirely -->
+	<% end %> 
+
+
+
+<h3> Coupons </h3>
+
+<p> <% @coupon.each do |coupon| %>
+	<%= Coupon.find_by(id: coupons.user_id) %>
 
 <% end %>
