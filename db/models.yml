@@ -23,8 +23,7 @@ User:
   marital_status: string
   kids_under_18: integer
   education: string
-  HH_id: string #Need to think if this makes sense to add--useful for multiple people in same HH 
-  #w diff buying habits
+
 
 Coupon:
   loyaltyProgram_id: integer
@@ -35,7 +34,6 @@ Coupon:
   coupon_code: string #Not sure? Img file? String? 
 
 Transaction:
-  ser_id: integer
   loyaltyProgram_id: integer
   item_bought: integer
   price: integer

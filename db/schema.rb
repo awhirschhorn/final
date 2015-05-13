@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "coupons", force: :cascade do |t|
-    t.integer "LoyaltyProgram_id"
+    t.integer "loyaltyProgram_id"
     t.integer "discount"
     t.integer "discounted_item"
     t.integer "discounted_category_num"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "coupon_code"
   end
 
-  add_index "coupons", ["LoyaltyProgram_id"], name: "index_coupons_on_LoyaltyProgram_id"
+  add_index "coupons", ["loyaltyProgram_id"], name: "index_coupons_on_loyaltyProgram_id"
 
   create_table "loyalty_programs", force: :cascade do |t|
     t.string  "store"
@@ -31,41 +31,42 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "User_id"
-    t.integer "LoyaltyProgram_id"
-    t.integer "Revenue"
+    t.integer "ser_id"
+    t.integer "loyaltyProgram_id"
+    t.integer "item_bought"
+    t.integer "price"
     t.integer "qty_bought"
-    t.integer "Coupons_id"
+    t.integer "coupon_id"
   end
 
-  add_index "transactions", ["Coupons_id"], name: "index_transactions_on_Coupons_id"
-  add_index "transactions", ["LoyaltyProgram_id"], name: "index_transactions_on_LoyaltyProgram_id"
-  add_index "transactions", ["User_id"], name: "index_transactions_on_User_id"
+  add_index "transactions", ["coupon_id"], name: "index_transactions_on_coupon_id"
+  add_index "transactions", ["loyaltyProgram_id"], name: "index_transactions_on_loyaltyProgram_id"
+  add_index "transactions", ["ser_id"], name: "index_transactions_on_ser_id"
 
   create_table "users", force: :cascade do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.string  "middle_initial"
-    t.string  "DOB"
+    t.string  "dob"
     t.integer "income"
-    t.integer "LoyaltyProgram_id"
+    t.integer "loyaltyProgram_id"
     t.string  "gender"
-    t.integer "HH_size"
+    t.integer "hh_size"
     t.string  "address1"
     t.string  "address2"
     t.string  "city"
     t.string  "state"
-    t.string  "ZIP"
+    t.string  "zip"
     t.string  "email"
     t.string  "race"
     t.string  "language"
     t.string  "marital_status"
     t.integer "kids_under_18"
     t.string  "education"
-    t.integer "HH_id"
+    t.string  "HH_id"
   end
 
   add_index "users", ["HH_id"], name: "index_users_on_HH_id"
-  add_index "users", ["LoyaltyProgram_id"], name: "index_users_on_LoyaltyProgram_id"
+  add_index "users", ["loyaltyProgram_id"], name: "index_users_on_loyaltyProgram_id"
 
 end
