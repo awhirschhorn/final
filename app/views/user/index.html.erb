@@ -2,7 +2,7 @@
 	<div class="col-sm-6">
 	<div class="thumbnail">
 		<a href="/user/<%= user.id%>">
-	<p><a href="/user/<%= user.id%>"><%= @user.first_name @user.middle_initial @user.last_name %></a></p>
+	<p><%= user.first_name %> <%= link_to user.last_name, user_url(user) %></a></p>
 	</div>
 	</div>
 <% end %>
