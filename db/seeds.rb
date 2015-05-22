@@ -40,12 +40,6 @@ walgreensfriend = Loyalty.create(store_id: walgreens.id,program: 'Friend of Walg
 cvssaver = Loyalty.create(store_id: cvs.id,program: 'CVS Saver',program_num: '0')
 containerfrequent = Loyalty.create(store_id: containerstore.id,program: 'Frequent Shopper',program_num: '0')
 
-purchase1 = Purchase.create(item_bought: '778399',price: '5.67',qty_bought: '2',coupon_id: coupon2.id)
-purchase2 = Purchase.create(item_bought: '1134',price: '78.9',qty_bought: '6',coupon_id: coupon2.id)
-purchase3 = Purchase.create(item_bought: '13390099',price: '105.76',qty_bought: '1',coupon_id: coupon6.id)
-purchase4 = Purchase.create(item_bought: '6772108',price: '56.78',qty_bought: '10',coupon_id: coupon3.id)
-purchase5 = Purchase.create(item_bought: '8872231',price: '7.45',qty_bought: '3',coupon_id: coupon1.id)
-
 coupon1 = Coupon.create(loyalty_id: jewelvalued.id, discount:'0.05',discounted_item:'Purchase',discounted_category_num:'45',discounted_category_str:'Purchase',coupon_code:'888740')
 coupon2 = Coupon.create(loyalty_id: targetelite.id, discount:'0.5',discounted_item:'Crest Whitening Strips',discounted_category_num:'3',discounted_category_str:'Dental',coupon_code:'44509984')
 coupon3 = Coupon.create(loyalty_id: cvssaver.id, discount:'0.1',discounted_item:'Pyrex Glass Measuring Cup 2 Cup',discounted_category_num:'7',discounted_category_str:'Kitchen',coupon_code:'666747')
@@ -54,3 +48,8 @@ coupon5 = Coupon.create(loyalty_id: cvssaver.id, discount:'.15',discounted_item:
 coupon6 = Coupon.create(loyalty_id: containerfrequent.id, discount: '.1', discounted_item: 'Boxes', discounted_category_num: '22', discounted_category_str: 'Storage', coupon_code:'2231009')
 coupon7 = Coupon.create(loyalty_id: walgreensfriend.id, discount: '.05', discounted_item: 'Tea', discounted_category_num: '23', discounted_category_str: 'Beverage', coupon_code: '39938208')
 
+purchase1 = Purchase.create(item_bought: '778399',price: '5.67',qty_bought: '2',coupon_id: coupon2.id)
+purchase2 = Purchase.create(item_bought: '1134',price: '78.9',qty_bought: '6',coupon_id: coupon2.id)
+purchase3 = Purchase.create(item_bought: '13390099',price: '105.76',qty_bought: '1',coupon_id: coupon6.id)
+purchase4 = Purchase.create(item_bought: '6772108',price: '56.78',qty_bought: '10',coupon_id: coupon3.id)
+purchase5 = Purchase.create(item_bought: '8872231',price: '7.45',qty_bought: '3',coupon_id: coupon1.id)
