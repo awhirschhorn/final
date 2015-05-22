@@ -6,8 +6,8 @@ class UserController < ApplicationController
   
   def show
 	@user = User.find_by(id: params["id"])	
-  	@loyalty = LoyaltyProgram.find_by(id: @user.loyaltyProgram_id) 
-    @coupon = Coupon.where(id: params["id"]) 
+  	@loyalty = Loyalty.where(id: @user.loyalty_id) 
+    @coupon = Coupon.where(id: @user.loyalty_id) 
     end
 
 

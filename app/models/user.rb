@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :loyaltyPrograms
+	has_many :loyalties
 	has_many :coupons
-	has_many :transactions
+	has_many :purchases
 
 end

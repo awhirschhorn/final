@@ -14,34 +14,51 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "coupons", force: :cascade do |t|
-    t.integer "loyaltyProgram_id"
+    t.integer "loyalty_id"
     t.integer "discount"
     t.integer "discounted_item"
     t.integer "discounted_category_num"
     t.string  "discounted_category_str"
     t.string  "coupon_code"
+    t.integer "user_id"
   end
 
-  add_index "coupons", ["loyaltyProgram_id"], name: "index_coupons_on_loyaltyProgram_id"
+  add_index "coupons", ["loyalty_id"], name: "index_coupons_on_loyalty_id"
+  add_index "coupons", ["user_id"], name: "index_coupons_on_user_id"
 
-  create_table "loyalty_programs", force: :cascade do |t|
-    t.string  "store"
+  create_table "loyalties", force: :cascade do |t|
+    t.string  "store_id"
     t.string  "program"
     t.integer "program_num"
+    t.integer "user_id"
+    t.integer "coupon_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
-    t.integer "ser_id"
-    t.integer "loyaltyProgram_id"
+  add_index "loyalties", ["coupon_id"], name: "index_loyalties_on_coupon_id"
+  add_index "loyalties", ["store_id"], name: "index_loyalties_on_store_id"
+  add_index "loyalties", ["user_id"], name: "index_loyalties_on_user_id"
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer "loyalty_id"
     t.integer "item_bought"
     t.integer "price"
     t.integer "qty_bought"
     t.integer "coupon_id"
+    t.integer "user_id"
   end
 
-  add_index "transactions", ["coupon_id"], name: "index_transactions_on_coupon_id"
-  add_index "transactions", ["loyaltyProgram_id"], name: "index_transactions_on_loyaltyProgram_id"
-  add_index "transactions", ["ser_id"], name: "index_transactions_on_ser_id"
+  add_index "purchases", ["coupon_id"], name: "index_purchases_on_coupon_id"
+  add_index "purchases", ["loyalty_id"], name: "index_purchases_on_loyalty_id"
+  add_index "purchases", ["user_id"], name: "index_purchases_on_user_id"
+
+  create_table "stores", force: :cascade do |t|
+    t.string  "name"
+    t.integer "loyalty_id"
+    t.integer "user_id"
+  end
+
+  add_index "stores", ["loyalty_id"], name: "index_stores_on_loyalty_id"
+  add_index "stores", ["user_id"], name: "index_stores_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string  "first_name"
@@ -49,7 +66,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "middle_initial"
     t.string  "dob"
     t.integer "income"
-    t.integer "loyaltyProgram_id"
+    t.integer "loyalty_id"
     t.string  "gender"
     t.integer "hh_size"
     t.string  "address1"
@@ -63,10 +80,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "marital_status"
     t.integer "kids_under_18"
     t.string  "education"
-    t.string  "HH_id"
   end
 
-  add_index "users", ["HH_id"], name: "index_users_on_HH_id"
-  add_index "users", ["loyaltyProgram_id"], name: "index_users_on_loyaltyProgram_id"
+  add_index "users", ["loyalty_id"], name: "index_users_on_loyalty_id"
 
 end

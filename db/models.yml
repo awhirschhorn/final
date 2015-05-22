@@ -1,7 +1,14 @@
-LoyaltyProgram:
-  store: string
+Store:
+  name: string
+  loyalty_id: integer
+  user_id: integer
+
+Loyalty:
+  store_id: string
   program: string
   program_num: integer
+  user_id: integer
+  coupon_id: integer
 
 User:
   first_name: string
@@ -9,7 +16,7 @@ User:
   middle_initial: string
   dob: string
   income: integer
-  loyaltyProgram_id: integer
+  loyalty_id: integer
   gender: string
   hh_size: integer
   address1: string
@@ -26,18 +33,20 @@ User:
 
 
 Coupon:
-  loyaltyProgram_id: integer
+  loyalty_id: integer
   discount: integer
   discounted_item: integer #makes most sense it will be some interger 
   discounted_category_num: integer 
   discounted_category_str: string
   coupon_code: string #Not sure? Img file? String? 
+  user_id: integer
 
-Transaction:
-  loyaltyProgram_id: integer
+Purchase:
+  loyalty_id: integer
   item_bought: integer
   price: integer
   qty_bought: integer
   coupon_id: integer
+  user_id: integer
   #Make more detailed and collect every item? Would make sense. But how to collect? 
   #What if they buy a lot of items (e.g. 20 things at grocery store)?

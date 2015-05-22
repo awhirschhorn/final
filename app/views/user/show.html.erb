@@ -1,18 +1,14 @@
 <h1> <%= @user.first_name %> <%= @user.middle_initial %> <%= @user.last_name %> </h1>
+<p></p>
+
+
 
 <h3> Loyalty Programs </h3>
 
-<p> <% @user.loyaltyProgram.each do |loyaltyProgram| %>
-	<%= @user.loyaltyProgram.store %> 
-	    <li><%= link_to loyaltyProgram.store, edit_loyaltyProgram_url(loyaltyProgram) %></li>
-    	<li><%= link_to "Delete", loyaltyProgram_url(loyaltyProgram) %></li> <!-- Need to figure out a way to make this only delete the loyalty program in the user's account, not the program entirely -->
-	<% end %> 
+<p> <%= @user.loyalty_id %> </p>
 
-
-
-<h3> Coupons </h3>
-
-<p> <% @coupon.each do |coupon| %>
-	<%= Coupon.find_by(id: coupons.user_id) %>
-
+<% @user.user_id.each do |loyalty| %>
+	<%= @user.loyalty.program %>
 <% end %>
+
+
