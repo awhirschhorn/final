@@ -30,6 +30,8 @@ User:
   marital_status: string
   kids_under_18: integer
   education: string
+  password_digest: string
+  admin: boolean
 
 
 Coupon:

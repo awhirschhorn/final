@@ -10,5 +10,10 @@ Rails.application.routes.draw do
   resources :store
   resources :coupon
   resources :purchase
+  resources :sessions 
+
+  get '/logout', to: 'sessions#destroy'
+
+  root to: "user#show"
 
 end

@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "marital_status"
     t.integer "kids_under_18"
     t.string  "education"
+    t.string  "password_digest"
+    t.boolean "admin",           default: false
   end
 
   add_index "users", ["loyalty_id"], name: "index_users_on_loyalty_id"

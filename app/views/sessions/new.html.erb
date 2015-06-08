@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>FINAL</title>
+  <%= javascript_include_tag 'application' %>
+  
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="container">
+
+    <%= form_tag sessions_path, class: "form-signin" do %>
+      <h1>FINAL</h1>
+      <h2 class="form-signin-heading">Log in please</h2>
+      <%= text_field_tag :email, "", class: "form-control", placeholder: "Email" %>
+      <%= password_field_tag :password, "", class: "form-control", placeholder: "Password" %>
+      <%= button_tag "Sign In", class: "btn btn-lg btn-primary btn-block" %> 
+      <%= link_to "Sign Up", new_user_url %>
+    <% end %>
+
+  </div>
+</body>
+</html>

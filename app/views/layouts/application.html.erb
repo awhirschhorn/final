@@ -1,12 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Final</title>
+  <title>KIEI 925 Final</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 </head>
 <body>
+    <div class="container">
+
+      <% if notice %>
+        <div class="alert alert-success" role="alert"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
+      <% end %>
+      
+      <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <%= link_to "Home", root_url, class: "navbar-brand" %>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/">
+                <i class="fa fa-home"></i>
+                Home
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+
+            <% if current_user.try(:admin?) %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                  <i class="fa fa-cog"></i>
+                  Admin
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to "Coupons", new_coupons_path %></li>
+                  <li><%= link_to "Stores", new_store_path %></li>
+                  <li><%= link_to "Users", new_user_path %></li>
+                </ul>
+              </li>
+            <% end %>
+
+            <% if current_user %>
+              <li><%= link_to current_user.try(:name), root_url %></li>
+              <li><%= link_to "Logout", logout_url %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
 
 <%= yield %>
 
